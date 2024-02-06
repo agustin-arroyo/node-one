@@ -1,3 +1,5 @@
+// nodemon app.js
+
 // require
 require('dotenv').config();
 const express = require('express')
@@ -6,6 +8,7 @@ const hbs = require('hbs');
 // custom
 const app = express()
 const port = process.env.PORT;
+const siteName = process.env.SITENAME;
 
 // set Handlebars
 app.set('view engine', 'hbs');
@@ -18,7 +21,7 @@ app.use( express.static('public') );
 app.get('/', (req, res) => {
     res.render('home', {
         name: 'Agustín',
-        siteName: 'Road Trip',
+        siteName: siteName,
         pageName: 'Home'
     });
 })
@@ -26,7 +29,7 @@ app.get('/', (req, res) => {
 app.get('/generic', (req, res) => {
     res.render('generic', {
         name: 'Agustín',
-        siteName: 'Road Trip',
+        siteName: siteName,
         pageName: 'Generic'
     });    
 })
@@ -34,7 +37,7 @@ app.get('/generic', (req, res) => {
 app.get('/elements', (req, res) => {
     res.render('elements', {
         name: 'Agustín',
-        siteName: 'Road Trip',
+        siteName: siteName,
         pageName: 'Elements'
     });    
 })
